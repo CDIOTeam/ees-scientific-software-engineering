@@ -10,4 +10,4 @@ def rms(input_array: np.ndarray) -> float:
     Returns:
         root mean square number
     """
-    return np.sqrt(np.mean(input_array ** 2))
+    return np.sqrt(np.mean(input_array**2))
