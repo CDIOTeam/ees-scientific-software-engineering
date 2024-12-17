@@ -23,4 +23,12 @@ def rms(input_array: np.ndarray) -> float:
     if input_array.ndim != 1:
         raise ValueError("input_array must be one-dimensional")
 
+    # Check for NaN values
+    if np.isnan(input_array).any():
+        raise ValueError("input_array must not contain any NaN values")
+
+    # Check for Inf values
+    if np.isinf(input_array).any():
+        raise ValueError("input_array must not contain any Inf values")
+
     return np.sqrt(np.mean(input_array**2))
