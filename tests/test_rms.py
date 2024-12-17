@@ -35,7 +35,7 @@ def test_input_type_rms():
 
 def test_rms_with_nan():
     """Test RMS raises ValueError if input contains NaN."""
-    input_array = np.array([1.0, np.nan, 2.0], dtype=np.loat64)
+    input_array = np.array([1.0, np.nan, 2.0], dtype=np.float64)
     with pytest.raises(ValueError, match="input_array must not contain any NaN values"):
         rms(input_array)
 
