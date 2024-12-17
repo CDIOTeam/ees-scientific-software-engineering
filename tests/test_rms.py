@@ -12,7 +12,7 @@ def test_rms():
     """
     Testing root mean square
     """
-    input_array = np.array([0.0, 1.0, 2.0, 3.0, 4.0])
+    input_array = np.array([0.0, 1.0, 2.0, 3.0, 4.0], dtype=np.float64)
     result = np.sqrt((1.0**2 + 2.0**2 + 3.0**2 + 4.0**2) / 5)
     isinstance(rms(input_array), float)
     assert np.isclose(rms(input_array), result)
@@ -22,7 +22,7 @@ def test_rms_invalid_dimension():
     """
     Testing dimension of numpy array
     """
-    input_array = np.array([[1.0, 2.0], [3.0, 4.0]])  # 2D array
+    input_array = np.array([[1.0, 2.0], [3.0, 4.0]], np.float64)  # 2D array
     with pytest.raises(ValueError, match="input_array must be one-dimensional"):
         rms(input_array)
 
@@ -30,6 +30,18 @@ def test_rms_invalid_dimension():
 def test_input_type_rms():
     input_array = [0.0, 1.0, 2.0, 3.0, 4.0]
     with pytest.raises(TypeError, match="input_array should be a numpy array"):
+        rms(input_array)
+
+
+def test_dtype_rms():
+    input_array = np.array([0.0, 1.0, 2.0, 3.0, 4.0], dtype=np.float32)
+    with pytest.raises(TypeError, match="Array dtype is not np.float64"):
+        rms(input_array)
+
+
+def test_length_rms():
+    input_array = np.array([], dtype=np.float64)
+    with pytest.raises(ValueError, match="input_array must be of length >= 1"):
         rms(input_array)
 
 
