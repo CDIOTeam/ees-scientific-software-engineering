@@ -23,4 +23,10 @@ def rms(input_array: np.ndarray) -> float:
     if input_array.ndim != 1:
         raise ValueError("input_array must be one-dimensional")
 
+    if not input_array.dtype == np.float64:
+        raise TypeError("Array dtype is not np.float64")
+
+    if not len(input_array) >= 1:
+        raise ValueError("input_array must be of length >= 1")
+
     return np.sqrt(np.mean(input_array**2))
