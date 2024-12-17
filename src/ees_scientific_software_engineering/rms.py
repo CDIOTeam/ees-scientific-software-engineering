@@ -1,6 +1,7 @@
+""" 
+This module contains the rms function
 """
-    This module to calculate the RMS of an array
-"""
+
 import numpy as np
 
 
@@ -16,6 +17,9 @@ def rms(input_array: np.ndarray) -> float:
     Raises:
         ValueError: If input_array is not one-dimensional
     """
+    if not isinstance(input_array, np.ndarray):
+        raise TypeError("input_array should be a numpy array")
+
 
     if input_array.ndim != 1:
         raise ValueError("input_array must be one-dimensional")
