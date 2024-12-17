@@ -1,6 +1,7 @@
 """ 
 This module contains the rms function
 """
+
 import numpy as np
 
 
