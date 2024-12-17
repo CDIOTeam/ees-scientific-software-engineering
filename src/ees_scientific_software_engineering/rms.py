@@ -20,7 +20,6 @@ def rms(input_array: np.ndarray) -> float:
     if not isinstance(input_array, np.ndarray):
         raise TypeError("input_array should be a numpy array")
 
-
     if input_array.ndim != 1:
         raise ValueError("input_array must be one-dimensional")
 
